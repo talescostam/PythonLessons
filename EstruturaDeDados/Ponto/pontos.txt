@@ -1,0 +1,8 @@
+Ponto zero
+0 0
+Em cima do eixo X
+1 0
+Em cima do eixo Y
+0 1
+Fora dos eixos 
+1 1
