@@ -9,4 +9,4 @@ def mdc(x, y):
     return mdc(y, x % y)
 
 
-print(mdc(23, 69))
+print(mdc(14, 490))
