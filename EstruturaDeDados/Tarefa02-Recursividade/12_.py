@@ -9,5 +9,5 @@ def imprimiNaturaisCrescente(n):
         print(n)
 
 
-n = int(input("Digite um número inteiro positivo N: "))
+n = int(input("Digite um número inteiro positivo: "))
 imprimiNaturaisCrescente(n)
