@@ -101,3 +101,59 @@ fila2.imprime()
 
 fila2.inverter()
 fila2.imprime()
+
+
+class Processo:
+    def __init__(self, id, tempoDeEspera):
+        self.id = id
+        self.tempoDeEspera = tempoDeEspera
+
+    def __repr__(self):
+        return f"Processo {self.id} (Tempo de Espera: {self.tempoDeEspera})"
+
+
+class Fila:
+    def __init__(self):
+        self.processos = []
+
+    def __repr__(self):
+        return "[" + str(self.processos) + "]"
+
+    def adicionarProcesso(self, processo):
+        self.processos.append(processo)
+
+    def matarProcesso(self):
+        if not self.processos:
+            return None
+
+        processo_mais_longo = max(self.processos, key=lambda p: p.tempoDeEspera)
+        self.processos.remove(processo_mais_longo)
+        return processo_mais_longo
+
+    def executarProcesso(self):
+        if not self.processos:
+            return None
+
+        processo_executado = self.processos.pop(0)
+        return processo_executado
+
+
+filaDeProcessos = Fila()
+filaDeProcessos.adicionarProcesso(Processo(1, 3))
+filaDeProcessos.adicionarProcesso(Processo(2, 2))
+filaDeProcessos.adicionarProcesso(Processo(3, 5))
+
+print("Fila de Processos: ")
+print(filaDeProcessos)
+
+processoEmExecucao = filaDeProcessos.executarProcesso()
+print(f"Processo Executado: {processoEmExecucao}")
+
+print("Fila de Processos após Execução: ")
+print(filaDeProcessos)
+
+processoMaisLongo = filaDeProcessos.matarProcesso()
+print(f"Processo com maior tempo para morrer: {processoMaisLongo}")
+
+print("Fila de Processos após o kill: ")
+print(filaDeProcessos)
